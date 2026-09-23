@@ -36,7 +36,7 @@ git clone https://github.com/sayanarijit/zenselection.xplr ~/.config/xplr/plugin
 require("zenselection").setup()
 ```
 
-## Using [xpm.xplr](https://github.com/dtomvan/xpm.xplr)
+### Using [xpm.xplr](https://github.com/dtomvan/xpm.xplr)
 
 ```lua
 require("xpm").setup({
