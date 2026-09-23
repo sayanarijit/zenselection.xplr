@@ -37,14 +37,14 @@ local function setup(config)
   config.layout = config.layout or xplr.config.layouts.builtin.default
   config.render = config.render or render
 
-  local horizontal_layout = config.layout.Horizontal
-  if not horizontal_layout then
+  local horizontal_layout_config = config.layout.Horizontal
+  if not horizontal_layout_config then
     error("Layout does not have horizontal split")
   end
 
-  local right_panes = horizontal_layout.splits[2]
+  local right_panes = horizontal_layout_config.splits[2]
   if not right_panes or not right_panes.Vertical then
-    error("Right split is not a vertical split")
+    error("Right split does not have a vertical split")
   end
 
   local vertical_splits = right_panes.Vertical.splits
@@ -55,7 +55,7 @@ local function setup(config)
 
   vertical_layout_config = right_panes.Vertical
 
-  config.layout.Horizontal.splits[2] = {
+  horizontal_layout_config.splits[2] = {
     Dynamic = "custom.zenselection.render",
   }
 
